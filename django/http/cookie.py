@@ -19,6 +19,7 @@ if _cookie_encodes_correctly and _cookie_allows_colon_in_names:
     SimpleCookie = http_cookies.SimpleCookie
 else:
     Morsel = http_cookies.Morsel
+    Morsel._reserved[str('samesite')] = str('SameSite')
 
     class SimpleCookie(http_cookies.SimpleCookie):
         if not _cookie_encodes_correctly:
